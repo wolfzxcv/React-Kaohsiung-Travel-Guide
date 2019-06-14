@@ -13,17 +13,43 @@ const blue = '#559AC8'
 const white = '#F3E7E7'
 
 const App = ({className}) => {
+  
+  const filterSelectOptions = all.allData.reduce( (eachData, zone) => {
+    eachData[zone.Zone] = 0  
+   return eachData   },{})
+  
+  const getSelectOptions= Object.keys(filterSelectOptions)
+
+  // const showlist = () ={
+
+  // }
+
+
   return (
     <div className={className}>
+      <a name="top"></a>
       <header>
       <img src={header_bg} />
       <p>Kaohsiung Travel Guide</p>
       </header>
-      <Select />
+
+
+     <div className='select'>
+     <select id="dropdown">
+      <option value="0" disabled selected>please select a district</option>
+      {getSelectOptions.map( (option, idx) => 
+      <Select 
+      key={idx}
+      value={option}
+      select={option}     
+      />)}
+     </select>    
+    </div>
+
       <hr/><img className='icons_down' src={icons_down} />
-      {console.log(all.allData.map(i=> i.Name))} 
+      {/* {console.log(all.allData.map(i=> i.Name))} */}
       <List />
-      <img className='btn_goTop' src={btn_goTop} />
+      <a href='#top'><img className='btn_goTop' src={btn_goTop} /></a>
       <footer>
       <p>Kaohsiung Travel</p>  
       <p>Data source <a href='https://www.kcg.gov.tw/EN/Default.aspx' target='_blank'>Kaohsiung City Government</a></p>  
@@ -39,7 +65,7 @@ App.propTypes = {
 const StyledApp = styled(App)` 
 
  header{
-  margin-top: 250px;
+  margin: 350px 0 200px 0;
   font-size: 40px;
   color: ${white};
   letter-spacing: 3.89px;
@@ -54,6 +80,19 @@ const StyledApp = styled(App)`
   width: 100vw;
   z-index: -1;
   }
+}
+
+.select{
+  height: 200px; 
+  display: flex;
+  justify-content: center;
+}
+
+select{
+
+  font-size: 22px;
+  width: 400px;
+  height: 50px;
 }
 
 hr {
@@ -99,7 +138,7 @@ footer{
    color: inherit;
   &:hover{
    color: #8B0000; 
-  } 
+    } 
   }
 }
 `

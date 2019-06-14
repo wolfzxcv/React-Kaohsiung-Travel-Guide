@@ -10,7 +10,7 @@ const icons_tag = require('../images/icons_tag.png')
 const List = ({className}) => {
   return (
     <div className={className}>
-      
+
     </div>
   )
 }
@@ -21,6 +21,7 @@ List.propTypes = {
 
 const StyledList = styled(List)`
   height: 500px;
+  background-color: #fff;
 `
 
 StyledList.displayName = 'List'

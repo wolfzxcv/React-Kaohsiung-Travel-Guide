@@ -1,23 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
-const Select = ({className}) => {
+const Select = ({select, value}) => {
   return (
-    <div className={className}>
-      
-    </div>
+      <option value={value}>{select}</option>   
   )
 }
 
-Select.propTypes = {
-  className: PropTypes.string
-}
-
-const StyledSelect = styled(Select)`
- height: 500px;
-`
-
-StyledSelect.displayName = 'Select'
-
-export default StyledSelect
+export default Select
