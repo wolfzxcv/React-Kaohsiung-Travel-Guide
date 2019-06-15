@@ -14,9 +14,7 @@ const List = ({className, backGroundImage, imageAlt, siteName, district, hours, 
   return (
     <div className={className}>
 
-    <div className='upper'>
-      {/* <img  src={backGroundImage} alt={imageAlt} />*/}
-     
+    <div className='upper'>    
       <div className='name'>
         <h3>{siteName}</h3>
         <h4>{district}</h4>  
@@ -57,24 +55,19 @@ const StyledList = styled(List)`
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-
-  img{
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: -1; 
-  }
+  background-image: url(${props => props.backGroundImage});
   
   .name{
     width: 100%; 
     padding: 0 7px;
     display: flex;
     justify-content: space-between;
-
-    h3 h4{
-      color: ${black}  
-    }  
-  }
+    color: ${black}; 
+    h3, h4{
+    background-color: rgba(255,255,255,0.8); 
+    box-shadow: 0 2px 3px 2px rgba(0,0,0,0.20);
+    border-radius: 25px; 
+    } 
 } 
 
 .lower{
