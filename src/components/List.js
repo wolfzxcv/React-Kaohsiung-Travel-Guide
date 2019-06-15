@@ -40,11 +40,10 @@ List.propTypes = {
 }
 
 const StyledList = styled(List)`
-  width: 20vw;  
-  padding: 50px;
   color: ${black};
   display: flex;
   flex-direction: column;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
 `
 
 StyledList.displayName = 'List'

@@ -154,10 +154,10 @@ hr {
 }
 
 .list-container{
-  width: 70vw;
+  width: 1200px;
   display: flex;
-  justify-content: space-evenly;
   flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 .btn_goTop{
