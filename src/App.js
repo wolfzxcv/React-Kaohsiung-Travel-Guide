@@ -12,6 +12,7 @@ const all = require('./components/allData')
 
 const blue = '#559AC8'
 const white = '#F3E7E7'
+const black = '#1A001A'
 
 const App = ({className}) => {
   const [select, setSelect] = useState('please select a district')
@@ -27,7 +28,9 @@ const App = ({className}) => {
   const option3 = () => setSelect('大樹區')
   const option4 = () => setSelect('岡山區')
   
-  console.log(all.allData.filter( x=> select.includes(x.Zone)))
+  const resultArr = all.allData.filter( x=> select.includes(x.Zone))
+
+  console.log(resultArr)
  
   return (
     <div className={className}>
@@ -39,7 +42,7 @@ const App = ({className}) => {
       </header>
 
      <div className='select'>
-     <select value={select} onChange={e=> setSelect(e.target.value)} >
+     <select value={select} onChange={e => setSelect(e.target.value)} >
       <option value='please select a district' disabled>please select a district</option>
       {getSelectOptions.map( (option, idx) => 
       <Select 
@@ -55,12 +58,25 @@ const App = ({className}) => {
     <hr/><img className='icons_down' src={icons_down} />
 
     <div className='show-title'>{select}</div> 
-   
-      <List />
-
+    
+    <div className='list-container'>
+     {resultArr.map( (list, idx) =>
+     <List
+     key={idx}
+     backGroundImage={list.Picture1} 
+     imageAlt={list.Picdescribe1}
+     siteName={list.Name}
+     district={list.Zone}
+     hours={list.Opentime}
+     address={list.Add}
+     tel={list.Tel}
+     ticket={list.Ticketinfo}
+     info={list.Description}
+     />)}
+     </div>
 
     <a href='#top'><img className='btn_goTop' src={btn_goTop} /></a>
-
+    
     <footer>
     <p>Kaohsiung Travel</p>  
     <p>Data source <a href='https://www.kcg.gov.tw/EN/Default.aspx' target='_blank'>Kaohsiung City Government</a></p>  
@@ -75,6 +91,7 @@ App.propTypes = {
 }
 
 const StyledApp = styled(App)` 
+ font-family: "Comic Sans MS", cursive, "Microsoft YaHei", "微软雅黑", "华文细黑";
 
  header{
   margin: 230px 0 200px 0;
@@ -101,9 +118,14 @@ const StyledApp = styled(App)`
 }
 
 select{
-  font-size: 20px;
-  width: 400px;
-  height: 50px;
+  background: rgba(255,255,255,0.70);
+  border: 3px solid ${white};
+  border-radius: 3px;
+  font-size: 18px;
+  color: ${black};
+  line-height: 21px;
+  width: 452px;
+  height: 48px;
 }
 
 hr {
@@ -131,6 +153,12 @@ hr {
   font-size: 36px;
 }
 
+.list-container{
+  width: 70vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 
 .btn_goTop{
 	position: fixed;

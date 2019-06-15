@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+const white = '#F3E7E7'
+const black = '#1A001A'
+
 const Popular = ({className, option1, option2, option3, option4}) => {
   return (
     <div className={className}>
@@ -24,7 +27,7 @@ Popular.propTypes = {
 }
 
 const StyledPopular = styled(Popular)`
-  background: #FFFFFF;
+  background: ${white};
   margin: 80px auto;
   box-shadow: 0 2px 5px 3px rgba(0,0,0,0.20);
   border-radius: 5px;
@@ -37,7 +40,7 @@ const StyledPopular = styled(Popular)`
   margin: 10px;
   font-size: 18px;
   font-weight: 500;
-  color: #000000;
+  color: ${black};
   align-self: flex-start;
   flex: 1;
 }
@@ -49,12 +52,12 @@ const StyledPopular = styled(Popular)`
   flex: 2 0 0%;
 }  
 
-.option1{  
+.option1, .option2, .option3, .option4{  
   width: 130px;
   height: 42px;
   font-size: 20px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: ${white};
   background: #8A82CC;
   border-radius: 5px;
   display: flex;
@@ -62,46 +65,20 @@ const StyledPopular = styled(Popular)`
   align-items: center;
 }
 
+.option1{
+  background: #8A82CC;
+}
 .option2{  
-  width: 130px;
-  height: 42px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #FFFFFF;
   background: #FFA782;;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .option3{  
-  width: 130px;
-  height: 42px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #FFFFFF;
   background: #F5D105;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .option4{  
-  width: 130px;
-  height: 42px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #FFFFFF;
   background: #559AC8;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-
-
 `
 
 
